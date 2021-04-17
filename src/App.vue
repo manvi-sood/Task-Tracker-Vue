@@ -1,17 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <Header title="Task Tracker" />
+    <Tasks :tasks="tasks" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header";
+import Tasks from "./components/Tasks";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Header,
+    Tasks
+  },
+  data() {
+    return {
+      tasks: []
+    }
+  },
+  created() {
+    this.tasks =[
+      {
+        id:1,
+        text: 'Doctors Appointment',
+        day: "March 1st at 2:30pm",
+        reminder: true,
+      },
+      {
+        id:2,
+        text: 'Meeting',
+        day: "March 2nd at 10:30am",
+        reminder: true,
+      },
+    ]
   }
-}
+};
 </script>
 
 <style>
@@ -22,5 +47,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+button {
+    width: 35%;
+    height: 40%;
 }
 </style>
